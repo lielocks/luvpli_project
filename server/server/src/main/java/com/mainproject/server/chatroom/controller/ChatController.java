@@ -43,9 +43,10 @@ public class ChatController {
     // 처리가 완료되면 /sub/chat/room/roomId 로 메시지가 전송된다.
     @MessageMapping("/chat/enterUser")
     public void enterUser(@Payload ChatMessage chat,
-                          SimpMessageHeaderAccessor headerAccessor) throws IOException {
+                          SimpMessageHeaderAccessor headerAccessor) {
+//                            SimpMessageHeaderAccessor headerAccessor) throws IOException {
 
-        chat.setMessage(chat.getMessage());
+            chat.setMessage(chat.getMessage());
 
         // 채팅방 유저+1
         ChatRoom room = chatService.findVerifiedRoomId(chat.getRoomId());
@@ -82,7 +83,7 @@ public class ChatController {
     // 해당 유저 채팅 보내기
     @MessageMapping("/chat/sendMessage/{roomId}")
     public void sendMessage(@Payload ChatMessage chat,
-                            @PathVariable String roomId) throws IOException {
+                            @PathVariable String roomId) {
 
         log.info("CHAT2 {}", chat.getMessage()); // Hello World
         log.info("CHAT3 {}", roomId);  // chat
