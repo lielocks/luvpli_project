@@ -56,6 +56,8 @@ public class ChatRoom extends Auditable {
 
     private Long playlistId;
 
+    private Long userCount; //maxCount는 방 생성할때 내가 지정하는 것
+
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "USER_LIST",
             joinColumns = @JoinColumn(name = "room_id"))

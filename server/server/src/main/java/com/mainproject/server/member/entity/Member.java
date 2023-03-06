@@ -57,6 +57,12 @@ public class Member extends Auditable {
         this.content = content;
     }
 
+    @Builder
+    public Member(Long memberId, String name) {
+        this.memberId = memberId;
+        this.name = name;
+    }
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Playlist> playlists = new ArrayList<>();
 

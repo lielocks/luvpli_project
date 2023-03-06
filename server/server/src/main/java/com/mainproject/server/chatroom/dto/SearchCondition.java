@@ -6,5 +6,8 @@ import lombok.Data;
 public class SearchCondition {
 
     private String title;
-    private String name;
+    private String userName;
+    private Integer countGoe;
+    private Integer countLoe;
+
 }
