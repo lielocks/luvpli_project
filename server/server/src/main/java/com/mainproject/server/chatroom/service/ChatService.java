@@ -2,6 +2,7 @@ package com.mainproject.server.chatroom.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mainproject.server.chatroom.config.WebSocketTest;
+import com.mainproject.server.chatroom.dto.ResponseChatRoomDto;
 import com.mainproject.server.chatroom.entity.ChatRoom;
 import com.mainproject.server.chatroom.repository.ChatRoomRepository;
 import com.mainproject.server.exception.BusinessException;
@@ -161,4 +162,6 @@ public class ChatService {
         Page<ChatRoom> chatRoomPage = new PageImpl<>(searchChatRooms.subList(start, end), pageRequest, searchChatRooms.size());
         return chatRoomPage;
     }
+
+//    public List<ResponseChatRoomDto> searchChatRoomV2
 }

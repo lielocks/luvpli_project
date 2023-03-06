@@ -13,6 +13,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Getter @Setter
+@Builder
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
@@ -22,7 +23,7 @@ public class ChatRoom extends Auditable {
     @OneToMany(mappedBy = "chatRoom")
     private List<Playlist> playlistList = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -68,12 +69,10 @@ public class ChatRoom extends Auditable {
     }
 
     @Builder
-    public ChatRoom(String roomId, String title, int maxCount, String pwd) {
-        this.roomId = roomId;
+    public ChatRoom(String title, int maxCount, String pwd) {
         this.title = title;
         this.maxCount = maxCount;
         this.pwd = pwd;
-        Onair on = Onair.ON;
     }
 
     public void handlerActions(WebSocketSession session, ChatMessage chatMessage, ChatService chatService) {
