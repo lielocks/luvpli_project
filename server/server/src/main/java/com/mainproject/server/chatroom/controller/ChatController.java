@@ -46,7 +46,7 @@ public class ChatController {
                           SimpMessageHeaderAccessor headerAccessor) {
 //                            SimpMessageHeaderAccessor headerAccessor) throws IOException {
 
-        chat.setMessage(chat.getMessage());
+            chat.setMessage(chat.getMessage());
 
         // 채팅방 유저+1
         ChatRoom room = chatService.findVerifiedRoomId(chat.getRoomId());

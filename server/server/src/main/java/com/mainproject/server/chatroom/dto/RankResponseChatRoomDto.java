@@ -4,17 +4,13 @@ import com.mainproject.server.chatroom.entity.ChatRoom;
 import com.mainproject.server.member.dto.RankChatRoomSimpleDto;
 import com.mainproject.server.member.dto.RankResponseDto;
 import com.mainproject.server.playlist.dto.PlaylistResponseDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.querydsl.core.annotations.QueryProjection;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class RankResponseChatRoomDto {
 
     private String roomId;
@@ -29,6 +25,7 @@ public class RankResponseChatRoomDto {
     PlaylistResponseDto playlistResponseDto;
     List<String> userlist = new ArrayList<>();
 
+    @QueryProjection
     @Builder
     public RankResponseChatRoomDto(ChatRoom chatRoom, List<RankResponseDto> rankResponseDtoList, RankChatRoomSimpleDto rankChatRoomSimpleDto, PlaylistResponseDto playlistResponseDto) {
         this.roomId = chatRoom.getRoomId();

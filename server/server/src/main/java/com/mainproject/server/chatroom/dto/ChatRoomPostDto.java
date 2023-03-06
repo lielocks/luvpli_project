@@ -1,10 +1,10 @@
 package com.mainproject.server.chatroom.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class ChatRoomPostDto {
     private Long memberId;
     private long playlistId;
