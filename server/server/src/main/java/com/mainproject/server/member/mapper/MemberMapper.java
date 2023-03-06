@@ -8,6 +8,7 @@ import com.mainproject.server.playlist.entity.Playlist;
 import com.mainproject.server.playlist.mapper.PlaylistMapper;
 import com.mainproject.server.response.MultiResponseDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.springframework.data.domain.PageImpl;
 
 import java.util.ArrayList;
@@ -16,6 +17,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface MemberMapper {
 
+//    @Mapping(target = "member.memberId", source = "member.memberId", ignore = true)
+//    @Mapping(target = "member.email", source = "member.email", ignore = true)
+//    @Mapping(target = "member.picture", source = "member.picture", ignore = true)
+//    @Mapping(target = "member.role", source = "member.role", ignore = true)
     Member memberPatchDtoToMember(MemberPatchDto memberPatchDto);
 
     List<MemberResponseDto> memberListToMemberResponseDtoList(List<Member> memberList);

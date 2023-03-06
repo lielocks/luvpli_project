@@ -5,6 +5,7 @@ import com.mainproject.server.member.entity.Member;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,4 +18,9 @@ public interface ChatRoomRepository extends JpaRepository<ChatRoom, String> {
     List<ChatRoom> findByTitleContaining(String title);
     List<ChatRoom> findByMember(Member member);
     List<ChatRoom> findByPlaylistId(Long playlistId);
+
+    @Query(value = "select * from ChatRoom c where c.title = 'title1'",
+            nativeQuery = true)
+    ChatRoom findChatRoomByTitle(String title);
+
 }

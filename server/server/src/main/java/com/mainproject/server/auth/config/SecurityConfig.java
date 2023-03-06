@@ -21,14 +21,14 @@ import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationF
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
     private final CustomOAuth2UserService customOauth2UserService;
     private final OAuth2SuccessHandler oAuth2SuccessHandler;
     private final JwtTokenizer jwtTokenizer;
     private final MemberRepository memberRepository;
     private final CustomAuthorityUtil customAuthorityUtil;
 
-    @Override
+//    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .headers().frameOptions().sameOrigin()
