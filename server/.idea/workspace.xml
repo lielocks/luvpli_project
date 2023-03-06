@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8edbd9e4-c40a-42bf-82f4-289423ebd185" name="Changes" comment="[Chore]" />
+    <list default="true" id="794408eb-3c0c-4ea3-a40d-acb6366af5e1" name="Changes" comment="[Chore]">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketUnSubscribeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketUnSubscribeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/ResponseChatRoomDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/ResponseChatRoomDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +63,18 @@
                 <item name="server" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="server" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="querydsl" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="server" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -109,53 +140,7 @@
       <recent name="C:\Users\00003807\Downloads\seb40_main_014\seb40_main_014\server\server\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServerApplication (1)">
-    <configuration name="ChatRoomDocumentationTest.update" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.mainproject.server.ChatRoomDocumentationTest.update&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="QueryBasicTest.searchTitle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/server" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.mainproject.server.QueryBasicTest.searchTitle&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.QueryRepositoryTest.search">
     <configuration name="server [compileQuerydsl]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -208,6 +193,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="QueryBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server.server.test~1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mainproject.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mainproject.server" />
+      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.QueryBasicTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryRepositoryTest.search" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server.server.test~1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mainproject.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mainproject.server" />
+      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.QueryRepositoryTest" />
+      <option name="METHOD_NAME" value="search(com.mainproject.server.chatroom.dto.SearchCondition)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" value="application.yml" />
       <module name="server.server.main~1" />
@@ -224,9 +240,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.ChatRoomDocumentationTest.update" />
-      <item itemvalue="Gradle.QueryBasicTest.searchTitle" />
       <item itemvalue="Gradle.server [compileQuerydsl]" />
+      <item itemvalue="JUnit.QueryBasicTest" />
+      <item itemvalue="JUnit.QueryRepositoryTest.search" />
       <item itemvalue="JUnit.ChatRoomDocumentationTest" />
       <item itemvalue="JUnit.ChatRoomDocumentationTest.update" />
       <item itemvalue="Spring Boot.ServerApplication" />
@@ -234,11 +250,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QueryRepositoryTest.search" />
+        <item itemvalue="Gradle.server [compileQuerydsl]" />
+        <item itemvalue="JUnit.QueryBasicTest" />
         <item itemvalue="JUnit.ChatRoomDocumentationTest.update" />
         <item itemvalue="JUnit.ChatRoomDocumentationTest" />
-        <item itemvalue="Gradle.ChatRoomDocumentationTest.update" />
-        <item itemvalue="Gradle.QueryBasicTest.searchTitle" />
-        <item itemvalue="Gradle.server [compileQuerydsl]" />
       </list>
     </recent_temporary>
   </component>

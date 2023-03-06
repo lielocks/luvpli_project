@@ -1,85 +1,131 @@
-//package com.mainproject.server.chatroom.repository;
-//
-//import com.mainproject.server.chatroom.dto.QResponseChatRoomDto;
-//import com.mainproject.server.chatroom.dto.ResponseChatRoomDto;
-//import com.mainproject.server.chatroom.dto.SearchCondition;
-//import com.mainproject.server.member.entity.QRankingList;
-//import com.querydsl.core.QueryResults;
-//import com.querydsl.jpa.impl.JPAQueryFactory;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.PageImpl;
-//import org.springframework.data.domain.Pageable;
-//
-//import javax.persistence.EntityManager;
-//import java.util.List;
-//
-//import static com.mainproject.server.chatroom.entity.QChatRoom.chatRoom;
-//import static com.mainproject.server.member.entity.QMember.member;
-//import static com.mainproject.server.playlist.entity.QPlaylist.playlist;
-//
-//public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom{
-//
-//    private final JPAQueryFactory queryFactory;
-//
-//    public ChatRoomRepositoryImpl(EntityManager em) {
-//        queryFactory = new JPAQueryFactory(em);
-//    }
-//
-//    @Override
-//    public List<ResponseChatRoomDto> search(SearchCondition searchCondition) {
-//        return null;
-//    }
-//
-//
-//    this.roomId = chatRoom.getRoomId();
-//        this.title = chatRoom.getTitle();
-//        this.maxCount = chatRoom.getMaxCount();
-//        this.pwd = chatRoom.getPwd();
-//        this.secret = chatRoom.getPwd() != null;
-//        this.userlist = chatRoom.getUserlist();
-//        this.userSize = chatRoom.getUserSize();
-//        this.playlistId = chatRoom.getPlaylistId();
-//        this.memberResponseDto = memberResponseDto;
-//        this.playlistResponseDto = playlistResponseDto;
-//
-//    @Override
-//    public List<ResponseChatRoomDto> search(SearchCondition searchCondition,
-//                                            Pageable pageable) {
-//        queryFactory
-//                .select(new QResponseChatRoomDto(
-//                        chatRoom.roomId,
-//                        chatRoom.title,
-//                        chatRoom.maxCount,
-//                        chatRoom.pwd,
-//                        chatRoom.secret,
-//                        chatRoom.userlist,
-//                        chatRoom.userSize,
-//                        playlist.playlistId
-//        ))
-//                .from(chatRoom)
-//    }
-//
-//    @Override
-//    public Page<MemberTeamDto> searchPageSimple(MemberSearchCondition condition,
-//                                                Pageable pageable) {
-//        QueryResults<MemberTeamDto> results = queryFactory
-//                .select(new QMemberTeamDto(
-//                        member.id,
-//                        member.username,
-//                        member.age,
-//                        team.id,
-//                        team.name))
-//                .from(member)
-//                .leftJoin(member.team, team)
-//                .where(usernameEq(condition.getUsername()),
-//                        teamNameEq(condition.getTeamName()),
-//                        ageGoe(condition.getAgeGoe()),
-//                        ageLoe(condition.getAgeLoe()))
-//                .offset(pageable.getOffset())
-//                .limit(pageable.getPageSize())
-//                .fetchResults();
-//        List<MemberTeamDto> content = results.getResults();
-//        long total = results.getTotal();
-//        return new PageImpl<>(content, pageable, total);
-//    }
-//}
+package com.mainproject.server.chatroom.repository;
+
+import com.mainproject.server.chatroom.dto.QSearchChatRoomDto;
+import com.mainproject.server.chatroom.dto.ResponseChatRoomDto;
+import com.mainproject.server.chatroom.dto.SearchChatRoomDto;
+import com.mainproject.server.chatroom.dto.SearchCondition;
+import com.mainproject.server.member.entity.Member;
+import com.mainproject.server.member.entity.QRankingList;
+import com.querydsl.core.QueryResults;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.support.PageableExecutionUtils;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+
+import static com.mainproject.server.chatroom.entity.QChatRoom.chatRoom;
+import static com.mainproject.server.member.entity.QMember.member;
+import static org.springframework.util.StringUtils.hasText;
+
+public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
+
+    private final JPAQueryFactory queryFactory;
+
+    public ChatRoomRepositoryImpl(EntityManager em) {
+        queryFactory = new JPAQueryFactory(em);
+    }
+
+
+    @Override
+    public List<SearchChatRoomDto> search(SearchCondition condition) {
+        return queryFactory
+                .select(new QSearchChatRoomDto(
+                        member.memberId.as("memberId"),
+                        member.name.as("userName"),
+                        chatRoom.maxCount,
+                        chatRoom.roomId,
+                        chatRoom.title
+                ))
+                .from(member)
+                .leftJoin(member.chatRooms, chatRoom)
+                .where(
+                        titleEq(condition.getTitle()),
+                        userNameEq(condition.getUserName()),
+                        countGoe(condition.getCountGoe()),
+                        countLoe(condition.getCountLoe()))
+                .fetch();
+    }
+
+    @Override
+    public Page<SearchChatRoomDto> searchPageSimple(SearchCondition condition, Pageable pageable) {
+        QueryResults<SearchChatRoomDto> results = queryFactory
+                .select(new QSearchChatRoomDto(
+                        member.memberId.as("memberId"),
+                        member.name.as("userName"),
+                        chatRoom.maxCount,
+                        chatRoom.roomId,
+                        chatRoom.title
+                ))
+                .from(member)
+                .leftJoin(member.chatRooms, chatRoom)
+                .where(
+                        titleEq(condition.getTitle()),
+                        userNameEq(condition.getUserName()),
+                        countGoe(condition.getCountGoe()),
+                        countLoe(condition.getCountLoe()))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+
+        List<SearchChatRoomDto> content = results.getResults();
+        long count = results.getTotal();
+
+        return new PageImpl<>(content, pageable, count);
+    }
+
+    @Override
+    public Page<SearchChatRoomDto> searchPageComplex(SearchCondition condition, Pageable pageable) {
+        List<SearchChatRoomDto> content = queryFactory
+                .select(new QSearchChatRoomDto(
+                        member.memberId.as("memberId"),
+                        member.name.as("userName"),
+                        chatRoom.maxCount,
+                        chatRoom.roomId,
+                        chatRoom.title
+                ))
+                .from(member)
+                .leftJoin(member.chatRooms, chatRoom)
+                .where(
+                        titleEq(condition.getTitle()),
+                        userNameEq(condition.getUserName()),
+                        countGoe(condition.getCountGoe()),
+                        countLoe(condition.getCountLoe()))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch();
+
+        JPAQuery<Member> count = queryFactory
+                .select(member)
+                .from(member)
+                .leftJoin(member.chatRooms, chatRoom)
+                .where(
+                        titleEq(condition.getTitle()),
+                        userNameEq(condition.getUserName()),
+                        countGoe(condition.getCountGoe()),
+                        countLoe(condition.getCountLoe()));
+
+        return PageableExecutionUtils.getPage(content, pageable, count::fetchCount);
+    }
+
+    private BooleanExpression titleEq(String title) {
+        return hasText(title) ? chatRoom.title.eq(title) : null;
+    }
+
+    private BooleanExpression userNameEq(String userName) {
+        return hasText(userName) ? member.name.eq(userName) : null;
+    }
+
+    private BooleanExpression countGoe(Integer countGoe) {
+        return countGoe != null ? chatRoom.maxCount.goe(countGoe) : null;
+    }
+
+    private BooleanExpression countLoe(Integer countLoe) {
+        return countLoe != null ? chatRoom.maxCount.goe(countLoe) : null;
+    }
+
+}
