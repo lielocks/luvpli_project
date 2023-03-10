@@ -37,6 +37,7 @@ public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
                 .select(new QSearchChatRoomDto(
                         member.memberId.as("memberId"),
                         member.name.as("userName"),
+                        member.ranking,
                         chatRoom.maxCount,
                         chatRoom.roomId,
                         chatRoom.title
@@ -57,6 +58,7 @@ public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
                 .select(new QSearchChatRoomDto(
                         member.memberId.as("memberId"),
                         member.name.as("userName"),
+                        member.ranking,
                         chatRoom.maxCount,
                         chatRoom.roomId,
                         chatRoom.title
@@ -84,6 +86,7 @@ public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
                 .select(new QSearchChatRoomDto(
                         member.memberId.as("memberId"),
                         member.name.as("userName"),
+                        member.ranking,
                         chatRoom.maxCount,
                         chatRoom.roomId,
                         chatRoom.title
@@ -112,6 +115,37 @@ public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
         return PageableExecutionUtils.getPage(content, pageable, count::fetchCount);
     }
 
+    @Override
+    public Page<SearchChatRoomDto> sortChatRoom(SearchCondition condition, Pageable pageable) {
+
+        QueryResults<SearchChatRoomDto> results = queryFactory
+                .select(new QSearchChatRoomDto(
+                        member.memberId.as("memberId"),
+                        member.name.as("userName"),
+                        member.ranking,
+                        chatRoom.maxCount,
+                        chatRoom.roomId,
+                        chatRoom.title
+                ))
+                .from(member)
+                .leftJoin(member.chatRooms, chatRoom)
+                .where(
+                        titleEq(condition.getTitle()),
+                        userNameEq(condition.getUserName()),
+                        countGoe(condition.getCountGoe()),
+                        countLoe(condition.getCountLoe()),
+                        rankingEq(condition.getRanking()))
+                .orderBy(member.ranking.desc())
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+
+        List<SearchChatRoomDto> content = results.getResults();
+        long count = results.getTotal();
+
+        return new PageImpl<>(content, pageable, count);
+    }
+
     private BooleanExpression titleEq(String title) {
         return hasText(title) ? chatRoom.title.eq(title) : null;
     }
@@ -120,6 +154,9 @@ public class ChatRoomRepositoryImpl implements ChatRoomRepositoryCustom {
         return hasText(userName) ? member.name.eq(userName) : null;
     }
 
+    private BooleanExpression rankingEq(Integer ranking) {
+        return hasText(String.valueOf(ranking)) ? member.ranking.eq(ranking) : member.isNull();
+    }
     private BooleanExpression countGoe(Integer countGoe) {
         return countGoe != null ? chatRoom.maxCount.goe(countGoe) : null;
     }

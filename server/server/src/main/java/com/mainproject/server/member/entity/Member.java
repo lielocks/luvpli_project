@@ -58,9 +58,9 @@ public class Member extends Auditable {
     }
 
     @Builder
-    public Member(Long memberId, String name) {
-        this.memberId = memberId;
+    public Member(String name, Integer ranking) {
         this.name = name;
+        this.ranking = ranking;
     }
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

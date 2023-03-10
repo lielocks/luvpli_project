@@ -31,6 +31,7 @@ public class ChatRoomQueryRepository {
                 .select(new QSearchChatRoomDto(
                         member.memberId.as("memberId"),
                         member.name.as("userName"),
+                        member.ranking,
                         chatRoom.maxCount,
                         chatRoom.roomId,
                         chatRoom.title

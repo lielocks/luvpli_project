@@ -94,6 +94,7 @@ public class ChatService {
         chatRoomRepository.delete(room);
     }
 
+    //조회순 정렬 V1
     public Page<ChatRoom> findRoomsUserSize(int page, int size) {
         Page<ChatRoom> findAllRooms = chatRoomRepository.findAll(
                 PageRequest.of(page, size, Sort.by("userSize").descending()));

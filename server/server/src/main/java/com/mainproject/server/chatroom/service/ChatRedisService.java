@@ -23,13 +23,13 @@ public class ChatRedisService {
     public static final String USER_COUNT = "USER_COUNT"; //채팅룸에 입장한 클라이언트수 저장
     public static final String ENTER_INFO = "ENTER_INFO"; //채팅룸에 입장한 클라이언트의 sessionId와 채팅룸 id를 맵핑한 정보 저장
 
-    @Resource
+//    @Resource
     private HashOperations<String, String, ChatRoom> hashOpsChatRoom;
 
-    @Resource
+//    @Resource
     private HashOperations<String, String, String> hashOpsEnterInfo;
 
-    @Resource
+//    @Resource
     private ValueOperations<String, String> valueOps;
 
     //채팅방 생성 : 서버간 채팅방 공유를 위해 redis hash에 저장한다.
