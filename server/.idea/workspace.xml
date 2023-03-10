@@ -5,24 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794408eb-3c0c-4ea3-a40d-acb6366af5e1" name="Changes" comment="[Chore]">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SortChatRoomDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SortCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketUnSubscribeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketUnSubscribeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/ResponseChatRoomDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/ResponseChatRoomDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryBasicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryBasicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryRepositoryTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +137,7 @@
       <recent name="C:\Users\00003807\Downloads\seb40_main_014\seb40_main_014\server\server\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.QueryRepositoryTest.search">
+  <component name="RunManager" selected="JUnit.QueryBasicTest.sort">
     <configuration name="server [compileQuerydsl]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,37 +159,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ChatRoomDocumentationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server.server.test~1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mainproject.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mainproject.server" />
-      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.ChatRoomDocumentationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ChatRoomDocumentationTest.update" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server.server.test~1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.mainproject.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.mainproject.server" />
-      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.ChatRoomDocumentationTest" />
-      <option name="METHOD_NAME" value="update" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="QueryBasicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server.server.test~1" />
       <extension name="coverage">
@@ -208,7 +174,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueryRepositoryTest.search" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="QueryBasicTest.searchParam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server.server.test~1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mainproject.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mainproject.server" />
+      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.QueryBasicTest" />
+      <option name="METHOD_NAME" value="searchParam" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryBasicTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server.server.test~1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mainproject.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mainproject.server" />
+      <option name="MAIN_CLASS_NAME" value="com.mainproject.server.QueryBasicTest" />
+      <option name="METHOD_NAME" value="sort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryRepositoryTest.search (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server.server.test~1" />
       <extension name="coverage">
         <pattern>
@@ -218,7 +216,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mainproject.server" />
       <option name="MAIN_CLASS_NAME" value="com.mainproject.server.QueryRepositoryTest" />
-      <option name="METHOD_NAME" value="search(com.mainproject.server.chatroom.dto.SearchCondition)" />
+      <option name="METHOD_NAME" value="search" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -242,19 +240,19 @@
     <list>
       <item itemvalue="Gradle.server [compileQuerydsl]" />
       <item itemvalue="JUnit.QueryBasicTest" />
-      <item itemvalue="JUnit.QueryRepositoryTest.search" />
-      <item itemvalue="JUnit.ChatRoomDocumentationTest" />
-      <item itemvalue="JUnit.ChatRoomDocumentationTest.update" />
+      <item itemvalue="JUnit.QueryBasicTest.searchParam" />
+      <item itemvalue="JUnit.QueryBasicTest.sort" />
+      <item itemvalue="JUnit.QueryRepositoryTest.search (1)" />
       <item itemvalue="Spring Boot.ServerApplication" />
       <item itemvalue="Spring Boot.ServerApplication (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.QueryRepositoryTest.search" />
+        <item itemvalue="JUnit.QueryBasicTest.sort" />
         <item itemvalue="Gradle.server [compileQuerydsl]" />
+        <item itemvalue="JUnit.QueryRepositoryTest.search (1)" />
+        <item itemvalue="JUnit.QueryBasicTest.searchParam" />
         <item itemvalue="JUnit.QueryBasicTest" />
-        <item itemvalue="JUnit.ChatRoomDocumentationTest.update" />
-        <item itemvalue="JUnit.ChatRoomDocumentationTest" />
       </list>
     </recent_temporary>
   </component>

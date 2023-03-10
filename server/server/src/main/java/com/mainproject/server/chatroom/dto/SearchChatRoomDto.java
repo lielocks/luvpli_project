@@ -7,14 +7,16 @@ import lombok.Data;
 public class SearchChatRoomDto {
     private Long memberId;
     private String userName;
+    private Integer ranking;
     private Integer maxCount;
     private String roomId;
     private String title;
 
     @QueryProjection
-    public SearchChatRoomDto(Long memberId, String userName, int maxCount, String roomId, String title) {
+    public SearchChatRoomDto(Long memberId, String userName, int ranking, int maxCount, String roomId, String title) {
         this.memberId = memberId;
         this.userName = userName;
+        this.ranking = ranking;
         this.maxCount = maxCount;
         this.roomId = roomId;
         this.title = title;

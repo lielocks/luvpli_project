@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RestController
 @RequestMapping("/roomsV2")
 public class RoomControllerV2 {
     private final ChatRedisService chatRedisService;

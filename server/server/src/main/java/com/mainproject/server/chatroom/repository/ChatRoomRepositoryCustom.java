@@ -3,6 +3,7 @@ package com.mainproject.server.chatroom.repository;
 import com.mainproject.server.chatroom.dto.ResponseChatRoomDto;
 import com.mainproject.server.chatroom.dto.SearchChatRoomDto;
 import com.mainproject.server.chatroom.dto.SearchCondition;
+import com.mainproject.server.chatroom.dto.SortChatRoomDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +14,5 @@ public interface ChatRoomRepositoryCustom {
 
     Page<SearchChatRoomDto> searchPageSimple(SearchCondition searchCondition, Pageable pageable);
     Page<SearchChatRoomDto> searchPageComplex(SearchCondition searchCondition, Pageable pageable);
+    Page<SearchChatRoomDto> sortChatRoom(SearchCondition searchCondition, Pageable pageable);
 }
