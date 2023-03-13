@@ -1,9 +1,6 @@
 package com.mainproject.server.redis.config;
 
 import com.mainproject.server.chatroom.config.RedisProperties;
-import com.mainproject.server.chatroom.handler.RedisSubscriber;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

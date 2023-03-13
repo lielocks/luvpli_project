@@ -1,14 +1,19 @@
 package com.mainproject.server.chatroom.service;
 
+import com.mainproject.server.chatroom.entity.ChatMessage;
 import com.mainproject.server.chatroom.entity.ChatRoom;
 import com.mainproject.server.member.entity.Member;
 import com.mainproject.server.playlist.entity.Playlist;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
@@ -23,14 +28,26 @@ public class ChatRedisService {
     public static final String USER_COUNT = "USER_COUNT"; //채팅룸에 입장한 클라이언트수 저장
     public static final String ENTER_INFO = "ENTER_INFO"; //채팅룸에 입장한 클라이언트의 sessionId와 채팅룸 id를 맵핑한 정보 저장
 
-//    @Resource
+    @Autowired
+    private RedisTemplate<String, ChatRoom> redisChatRoomTemplate;
+
+    @Autowired
+    private RedisTemplate<String, String> redisStringTemplate;
+
+    @PostConstruct
+    private void init() {
+        hashOpsChatRoom = redisChatRoomTemplate.opsForHash();
+        hashOpsEnterInfo = redisStringTemplate.opsForHash();
+        valueOps = redisStringTemplate.opsForValue();
+    }
+
     private HashOperations<String, String, ChatRoom> hashOpsChatRoom;
 
-//    @Resource
     private HashOperations<String, String, String> hashOpsEnterInfo;
 
-//    @Resource
     private ValueOperations<String, String> valueOps;
+
+    private final ChannelTopic channelTopic;
 
     //채팅방 생성 : 서버간 채팅방 공유를 위해 redis hash에 저장한다.
     public ChatRoom createChatRoom(String title, Member member, Playlist playlist) {
@@ -38,8 +55,9 @@ public class ChatRedisService {
                 .roomId(String.valueOf(UUID.randomUUID()))
                 .member(member)
                 .playlistId(playlist.getPlaylistId())
-                .title("room1")
-                .pwd("password1").build();
+                .title(title)
+                .build();
+
         hashOpsChatRoom.put(CHAT_ROOMS, chatRoom.getRoomId(), chatRoom);
         return chatRoom;
     }
@@ -84,5 +102,22 @@ public class ChatRedisService {
         return hashOpsChatRoom.get(CHAT_ROOMS, roomId);
     }
 
+    public String getRoomId(String destination) {
+        int lastIndex = destination.lastIndexOf('/');
+        if (lastIndex != -1) {
+            return destination.substring(lastIndex + 1);
+        } else return "";
+    }
 
+    public void sendMessage(ChatMessage chatMessage) {
+        chatMessage.setUserCount(getUserCount(chatMessage.getRoomId()));
+        if (chatMessage.getType().equals(ChatMessage.MessageType.ENTER)) {
+            chatMessage.setMessage(chatMessage.getMemberName() + "님이 입장하셨습니다.");
+            chatMessage.setMemberName("[알림]");
+        } else if(chatMessage.getType().equals(ChatMessage.MessageType.LEAVE)) {
+            chatMessage.setMessage(chatMessage.getMemberName() + "님이 나가셨습니다.");
+            chatMessage.setMemberName("[알림]");
+        }
+        redisStringTemplate.convertAndSend(channelTopic.getTopic(), chatMessage);
+    }
 }

@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794408eb-3c0c-4ea3-a40d-acb6366af5e1" name="Changes" comment="[Chore]">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SortChatRoomDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SortCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/handler/StompHandlerV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchChatRoomDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/dto/SearchCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomQueryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryCustom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/repository/ChatRoomRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketBrokerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketBrokerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketHandlerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/config/WebSocketUnSubscribeHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/RoomControllerV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/controller/ChatControllerV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/entity/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/handler/RedisSubscriber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/handler/WebSocketSubscribeHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatRedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/ChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/member/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryBasicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryBasicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/mainproject/server/QueryRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/chatroom/service/UserTimeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/redis/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/mainproject/server/redis/config/RedisConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
