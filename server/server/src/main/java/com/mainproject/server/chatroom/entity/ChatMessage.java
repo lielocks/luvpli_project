@@ -32,6 +32,8 @@ import javax.persistence.*;
 
         private String roomId;
 
+        private long userCount;
+
         public void newConnect() {
             this.type = MessageType.ENTER;
         }

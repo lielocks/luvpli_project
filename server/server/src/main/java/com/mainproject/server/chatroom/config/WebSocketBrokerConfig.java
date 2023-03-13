@@ -35,40 +35,8 @@ public class WebSocketBrokerConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic", "/direct")
-                .setTaskScheduler(taskScheduler())
-                .setHeartbeatValue(new long[] {300L, 300L});
         registry.setUserDestinationPrefix("/sub"); //message 받을때 subscriber
         registry.setApplicationDestinationPrefixes("/pub"); //message 보낼때 publisher
     }
 
-    public TaskScheduler taskScheduler() {
-        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
-        taskScheduler.initialize();
-        return taskScheduler;
-    }
-
-    @Override
-    public void configureClientInboundChannel(ChannelRegistration registration) {
-        registration.interceptors(new ChannelInterceptor() {
-            @Override
-            public Message<?> preSend(Message<?> message, MessageChannel channel) {
-                StompHeaderAccessor accessor =
-                        MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
-
-                if(StompCommand.CONNECT.equals(accessor.getCommand())) {
-                    String user = accessor.getFirstNativeHeader("USER");
-                    if (user != null) {
-                        List<GrantedAuthority> authorities = new ArrayList<>();
-                        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-                        UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(user, user, authorities);
-                        SecurityContextHolder.getContext().setAuthentication(auth);
-                        accessor.setUser(auth);
-                    }
-                }
-
-                return message;
-            }
-        });
-    }
 }
